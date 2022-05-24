@@ -1,4 +1,6 @@
 sudo: required 
+language: generic
+
 services:
   - docker
 before_install:
@@ -12,7 +14,7 @@ after_success:
   - docker build -t arikuz/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push arikuz/multi-client ./client
-  - docker push arikuz/multi-nginx ./nginx
-  - docker push arikuz/multi-server ./server
-  - docker push arikuz/multi-worker ./worker
+  - docker push arikuz/multi-client 
+  - docker push arikuz/multi-nginx 
+  - docker push arikuz/multi-server
+  - docker push arikuz/multi-worker
