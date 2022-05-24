@@ -8,13 +8,13 @@ before_install:
 script:
   - docker run -e CI=true arikuz/react-test npm test
 after_success:
-  - docker build -t arikuz/multi-client ./client
-  - docker build -t arikuz/multi-nginx ./nginx
-  - docker build -t arikuz/multi-server ./server
-  - docker build -t arikuz/multi-worker ./worker
+  - docker build -t arikuz93/multi-client ./client
+  - docker build -t arikuz93/multi-nginx ./nginx
+  - docker build -t arikuz93/multi-server ./server
+  - docker build -t arikuz93/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push arikuz/multi-client 
-  - docker push arikuz/multi-nginx 
-  - docker push arikuz/multi-server
-  - docker push arikuz/multi-worker
+  - docker push arikuz93/multi-client 
+  - docker push arikuz93/multi-nginx 
+  - docker push arikuz93/multi-server
+  - docker push arikuz93/multi-worker
